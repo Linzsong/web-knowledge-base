@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>defineProperty</title>
+</head>
+<body>
+    <div id="app">
+        <div>defineProperty响应式原理</div>
+        <p id="name"></p>
+    </div>
+
+    <script>
+        var obj = {}
+        Object.defineProperty(obj, 'name', {
+            get: function () {
+                return document.querySelector('#name').innerHTML;
+            },
+            set: function (val) {
+                document.querySelector('#name').innerHTML = val;
+            }
+        })
+        obj.name = 'Jerry'
+        
+
+        // Proxy 新方式
+        var dataObj = {
+            a: '111',
+            b: '222',
+            c: '333',
+        }
+        dataObj = new Proxy(dataObj, {
+            get(target, name) {
+                console.log('get: ' + name )
+                return target[name];
+            },
+            set(target, name, value) {
+                console.log('set: ' + name )
+                target[name] = value;
+                return true
+            }
+        })
+    </script>
+    
+</body>
+</html>

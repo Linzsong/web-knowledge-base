@@ -1,0 +1,69 @@
+<!--
+ * @Descripttion: 
+ * @Author: linzisong
+ * @Date: 2020-12-17 10:19:51
+ * @LastEditors: linzisong
+ * @LastEditTime: 2021-07-16 16:22:35
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      {{apple}}
+      <p>{{name}}</p>
+      <!-- <p k-text="name"></p> -->
+      <p>{{age}}</p>
+      <p>{{doubleAge}}</p>
+      <p>{{doubleAge}}</p>
+      <!-- 双向绑定 -->
+      <!-- <input type="text" k-model="name" /> -->
+      <!-- 事件处理 -->
+      <!-- <button @click="changeName">呵呵</button> -->
+      <!-- html内容解析 -->
+      <!-- <div k-html="html"></div> -->
+    </div>
+
+    <script src="./vue.js"></script>
+    <script src="./compile.js"></script>
+
+    <script>
+      const vm = new Vue({
+        el: "#app",
+        data: {
+          apple: '苹果',
+          name: "I am test.",
+          age: 12,
+          // html: "<button>这是一个按钮</button>",
+          doubleAge: 'doubleAgedoubleAgedoubleAge',
+          // a: ['0', '1', '2', '3'],
+          obj: {
+            a: 1,
+            b: 2,
+            c: 3,
+          }
+        },
+        created() {
+          console.log("开始啦");
+          setTimeout(() => {
+            // console.log(this.$data.name)
+            this.$data.name = "我是测试";
+          }, 800);
+        },
+        // methods: {
+        //   changeName() {
+        //     this.name = "哈喽，爱你么么哒";
+        //     this.age = 1;
+        //   }
+        // }
+      });
+
+    </script>
+
+  </body>
+</html>

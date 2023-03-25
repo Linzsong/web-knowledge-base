@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div></div>
+  <div>
+    <a href="http://192.168.8.71:52789/20210524/2021052416265549990012.png" download="" target="_blank">111111111111</a>
+  </div>
+  <div>
+    <a href="http://192.168.2.66:52789/20210524/2021052416115017350189.md" download="下载.png" target="_blank">222222222222</a>
+  </div>
+  <div>
+    <a href="./~$2020年7月第1周工作日志-陈莹.xlsx" download="">333333333</a>
+  </div>
+  <div>
+    <a href="https://www.dqdl.net/assets/addons/cms/img/logo.png" download="">下载图片</a>
+  </div>
+
+  <a href="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1380400117,1753524827&fm=27&gp=0.jpg" target="_blank" download="下载">下载</a>
+ 
+<!-- <img src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1380400117,1753524827&fm=27&gp=0.jpg" alt=""> -->
+</body>
+
+</html>
+<script>
+  let arr = [3, 44, 38, 5, 47, 15, 36, 26, 27, 2];
+  console.log('原始值：', arr)
+  let sortArr = []
+  sortArr = quickSort(arr, 0, arr.length - 1)
+  console.log('排序结果：', sortArr)
+  function quickSort(arr, left, right) {
+
+    if(left >= right) return arr;
+
+    let L = left
+    let R = right
+    let Pivot = arr[L]
+
+    while(R > L) {
+      
+      while ((R > L) && arr[R] >= Pivot ) {
+        R--
+      }
+      if(L < R) { arr[L] = arr[R] }
+      while ((R > L) && arr[L] <= Pivot) {
+        L++
+      }
+      if(L < R) { arr[R] = arr[L] }
+
+      if(L >= R) { arr[L] = Pivot }
+    }
+    console.log(arr)
+    // 
+    quickSort(arr, left, R-1)
+    quickSort(arr, R+1, right)
+
+    return arr
+  }
+
+  // let a = document.getElementsByClassName('uni-video-video')
+  // console.log(a.currentTime)
+
+</script>
